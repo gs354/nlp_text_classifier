@@ -48,7 +48,6 @@ def get_model_deep(
 
     model = tf.keras.Model(inputs, outputs)
 
-    # Compile the model with binary crossentropy loss and an adam optimizer.
     model.compile(optimizer=optimizer, loss=loss, metrics=metrics)
 
     return model
