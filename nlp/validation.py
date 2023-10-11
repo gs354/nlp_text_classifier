@@ -10,6 +10,7 @@ def make_validation_set(
 
     for category in ("neg", "pos"):
         files = os.listdir(train_dir / category)
+        files.remove('.gitignore')
         random.Random(seed).shuffle(files)
         num_val_samples = int(val_fraction * len(files))
         val_files = files[-num_val_samples:]
