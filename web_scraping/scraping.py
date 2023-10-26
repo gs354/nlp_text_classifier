@@ -23,7 +23,9 @@ def text_date_to_datetime(text: str) -> dt.datetime:
     elif "days ago" in text.lower():
         datetime = dt.datetime.now().date() - dt.timedelta(days=int(text[0]))
     else:
-        datetime = dt.datetime.strptime(text, "%b %d, %Y").date()
+        if "Sept" in text:
+            text = text.replace("t", "")
+        datetime = dt.datetime.strptime(text, "%d %b %Y").date()
 
     return datetime
 
